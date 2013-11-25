@@ -5,16 +5,13 @@ class Word < ActiveRecord::Base
   before_save :calculate_percentage
 
   def add_word
-    word = get_random_word.downcase
-    self.word = word
-    self.save
+    self.word = get_random_word.downcase
   end
 
   def calculate_percentage
     if self.correct > 0 || self.incorrect > 0
-      self.percentage = self.correct / (self.correct + self.incorrect)
+      self.percent = self.correct / (self.correct + self.incorrect)
     end
-    self.save
   end
 
   def get_random_word
