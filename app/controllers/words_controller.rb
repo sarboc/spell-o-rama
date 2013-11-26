@@ -25,7 +25,8 @@ class WordsController < ApplicationController
   end
 
   def update
-    word.find(params[:id])
-    word.update_attributes(params[:word])
+    word = Word.find(params[:id])
+    word.update_attributes(correct: params[:correct], incorrect: params[:incorrect])
+    respond_with word
   end
 end

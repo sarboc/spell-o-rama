@@ -1,8 +1,8 @@
-class App.Models.Words extends Backbone.Model
+class App.Models.Word extends Backbone.Model
   urlRoot: "/words"
 
-  initialize: (attrs) ->
-    @correct = attrs.correct
-    @incorrect = attrs.incorrect
-    @word = attrs.word
-    @percent = attrs.percent
+  # initialize: (attrs) ->
+  #   @set 'correct' = attrs.correct
+  #   @incorrect = attrs.incorrect
+  #   @word = attrs.word
+  #   @percent = attrs.percent

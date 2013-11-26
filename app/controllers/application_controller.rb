@@ -2,6 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def index
-    render text: 'loading...', layout: true
+    render text: '', layout: true
   end
 end
