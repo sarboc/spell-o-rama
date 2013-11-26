@@ -1,7 +1,23 @@
-<video controls name="media">
-  <source src="<%= @url %>" type="audio/mpeg">
-</video>
-<form id="spelling">
-<input type="text" id="guess" />
-<input type="submit" value="check spelling"/>
-</form>
+<p>Your current score is: <%= @score %></p>
+<% if @lastWord: %>
+  <p><%= if @guessCorrect then "Congrats!" else "Sorry!" %> Your last answer was <%= if @guessCorrect then "correct" else "incorrect" %></p>
+  <p>Your guess: <%= @guess %></p>
+  <p>Actual spelling: <%= @lastWord.get "word" %></p>
+  <ul>
+    <% for definition in @lastDefinitions: %>
+      <li><%= definition %></li>
+    <% end %>
+  </ul>
+<% end %>
+<div class="form-container">
+  <audio controls name="media">
+    <source src="<%= @url %>" type="audio/mpeg">
+  </audio>
+  <form id="spelling" role="form">
+    <div class="form-group">
+      <label class="sr-only">Guess</label>
+      <input type="text" id="guess" class="form-control" placeholder="guess the word"/>
+    </div>
+  <input type="submit" value="check spelling" class="btn btn-primary btn-block"/>
+  </form>
+</div>

@@ -21,7 +21,13 @@ class WordsController < ApplicationController
       url = Wordnik.word.get_audio("#{word.word}")
     end
 
-    render json: {word: word, url: url.last["fileUrl"]}
+    definitions = []
+
+    Wordnik.word.get_definitions("#{word.word}", limit: 3).each do |definition|
+      definitions << definition["text"]
+    end
+
+    render json: {word: word, url: url.last["fileUrl"], definitions: definitions}
   end
 
   def update

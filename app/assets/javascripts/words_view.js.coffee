@@ -3,7 +3,9 @@ class App.Views.Words extends App.View
     @template = JST["templates/word"]
     @newWord = ""
     @url = ""
+    @newDefinitions = []
     @getWord()
+    @score = 0
 
   events:
     "submit form": "checkWord"
@@ -12,22 +14,23 @@ class App.Views.Words extends App.View
     $.post '/words', (data) =>
       @newWord = new App.Models.Word data["word"]
       @url = data["url"]
+      @newDefinitions = data["definitions"]
     .done =>
       @render()
 
   checkWord: (event) ->
     event.preventDefault()
-    guess = $("#guess").val()
-    if guess == @newWord.get "word"
-      console.log "correct"
-      score = @newWord.get "correct"
-      score += 1
-      @newWord.set "correct", score
+    @guess = $("#guess").val()
+    if @guess == @newWord.get "word"
+      @newWord.set "correct", 1 + @newWord.get "correct"
+      @score += 1
+      @guessCorrect = true
     else
-      console.log "incorrect"
-      @newWord.set "incorrect", ((@newWord.get "incorrect") + 1)
+      @newWord.set "incorrect", 1 + @newWord.get "incorrect"
+      @guessCorrect = false
+    @lastWord = @newWord
+    @lastDefinitions = @newDefinitions
     @newWord.save().done =>
-      console.log "done"
       @getWord()
 
 
