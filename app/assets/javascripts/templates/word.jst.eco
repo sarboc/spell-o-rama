@@ -1,0 +1,5 @@
+<h1>Made it!</h1>
+<p><%= @newWord.get "word" %></p>
+<video controls name="media">
+  <source src="<%= @url %>" type="audio/mpeg">
+</video>

@@ -21,7 +21,7 @@ class Word < ActiveRecord::Base
     # excludePartsOfSpeech: "proper-noun-plural" - excludes plural proper nouns such as "Steves"
     # excludePartsOfSpeech: "proper-noun-possessive" - excludes possessive proper nouns such as "Steve's"
     # result is a hash, and we want the value of the ["word"] key
-    Wordnik.words.get_random_word(includePartOfSpeech: "noun", excludePartOfSpeech: "proper-noun", excludePartOfSpeech: "proper-noun-plural", excludePartOfSpeech: "proper-noun-posessive")["word"]
+    Wordnik.words.get_random_word(includePartOfSpeech: "noun", excludePartOfSpeech: "noun-plural, proper-noun, proper-noun-plural, proper-noun-posessive", minCorpusCount: 100)["word"]
   end
 
 end

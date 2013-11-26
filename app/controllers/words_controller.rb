@@ -13,7 +13,15 @@ class WordsController < ApplicationController
 
   def create
     word = Word.create
-    respond_with word
+    url = Wordnik.word.get_audio("#{word.word}")
+
+    while url.empty?
+      word.destroy
+      word = Word.create
+      url = Wordnik.word.get_audio("#{word.word}")
+    end
+
+    render json: {word: word, url: url.last["fileUrl"]}
   end
 
   def update
