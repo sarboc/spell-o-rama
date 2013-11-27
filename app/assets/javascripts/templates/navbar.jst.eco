@@ -7,6 +7,26 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <li><a>Your current score is: <%= @score %></a></li>
+      <li class="active"><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
     </ul>
-  </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">About Spell-O-Rama</h4>
+      </div>
+      <div class="modal-body">
+        Spell words. Help build and API. Be awesome.
+        <h4>Spell words</h4>
+          <p>Use Spell-O-Rama to help build your vocabulary while learning how to spell words.</p>
+        <h4>Help build and API</h4>
+          <p>While there are many word APIs available, there isn't one that provides only words humans can spell. Spell-O-Rama is trying to change that. View our API docs (coming soon) to see how you can access our list of spellable words.</p>
+        <h4>Be awesome</h4>
+          <p>You're awesome for helping yourself. You're awesome for helping us. Result: awesome!</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,4 +10,7 @@
 # Note: jQuery and Lodash/Underscore must be available before Backbone
 # or you'll have prollems
 
-$ -> App.start() # Start our app when the page is loaded
+$ ->
+  App.start().done ->
+    $('#myModal').modal()
+   # Start our app when the page is loaded
