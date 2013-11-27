@@ -33,6 +33,6 @@
   margin: auto;
  }
 
- .panel {
-
+ .loading {
+  background-image: url(<%= asset_path 'ajax-loader.gif' %>)
  }
