@@ -5,4 +5,14 @@ window.App =
   start: ->
     console.log "App starting..."
     @wordView = new App.Views.Words
-      el: $("#word")
+      app: @
+    .getWord()
+    @navbar = new App.Views.Navbar
+      app: @
+    .render()
+    @results = new App.Views.Results
+      app: @
+    .render()
+
+
+_.extend App, Backbone.Events

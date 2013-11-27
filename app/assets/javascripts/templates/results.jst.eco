@@ -1,14 +1,14 @@
-<% if @lastWord: %>
-  <div class="panel <%= if @guessCorrect then "panel-success" else "panel-danger" %>">
+<% if @word: %>
+  <div class="panel <%= if @correct then "panel-success" else "panel-danger" %>">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= if @guessCorrect then "Congrats!" else "Sorry!" %> Your last answer was <%= if @guessCorrect then "correct" else "incorrect" %></h3>
+      <h3 class="panel-title"><%= if @correct then "Congrats!" else "Sorry!" %> Your last answer was <%= if @correct then "correct" else "incorrect" %></h3>
     </div>
     <div class="panel-body">
       <h5>Your guess: <%= @guess %></h5>
-      <h5>Actual spelling: <%= @lastWord.get "word" %></h5>
+      <h5>Actual spelling: <%= @word.get "word" %></h5>
       <p>Definition(s):</p>
       <ol>
-        <% for definition in @lastDefinitions: %>
+        <% for definition in @definitions: %>
           <li><%= definition %></li>
         <% end %>
       </ol>
