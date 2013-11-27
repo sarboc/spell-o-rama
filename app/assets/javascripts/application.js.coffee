@@ -11,6 +11,4 @@
 # or you'll have prollems
 
 $ ->
-  App.start().done ->
-    $('#myModal').modal()
-   # Start our app when the page is loaded
+  App.start()
