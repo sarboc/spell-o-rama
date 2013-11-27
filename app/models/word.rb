@@ -2,7 +2,7 @@ class Word < ActiveRecord::Base
   attr_accessible :word, :correct, :incorrect
 
   before_create :add_word
-  after_save :calculate_percentage
+  before_save :calculate_percentage
 
   def add_word
     self.word = get_random_word.downcase

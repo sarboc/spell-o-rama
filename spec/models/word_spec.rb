@@ -28,7 +28,7 @@ describe Word do
       word.percent.should == 0
       word.correct += 1
       word.save
-      word.percent.should == 1
+      word.reload.percent.should == 1
     end
   end
 

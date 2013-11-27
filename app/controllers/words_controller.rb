@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   respond_to :json # AJAX only
 
   def index
-    words = Word.all
+    words = Word.all.where("percent > ?", 0.75)
     respond_with words
   end
 
