@@ -1,14 +1,3 @@
-<p>Your current score is: <%= @score %></p>
-<% if @lastWord: %>
-  <p><%= if @guessCorrect then "Congrats!" else "Sorry!" %> Your last answer was <%= if @guessCorrect then "correct" else "incorrect" %></p>
-  <p>Your guess: <%= @guess %></p>
-  <p>Actual spelling: <%= @lastWord.get "word" %></p>
-  <ul>
-    <% for definition in @lastDefinitions: %>
-      <li><%= definition %></li>
-    <% end %>
-  </ul>
-<% end %>
 <div class="form-container">
   <audio controls name="media">
     <source src="<%= @url %>" type="audio/mpeg">

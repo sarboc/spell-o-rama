@@ -12,13 +12,27 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  background-color: #95a5a6;
+ }
 
- .container {
+ .main-container {
   width: 600px;
   margin: 20px auto;
+  background-color: white;
+  border-radius: 5px;
+  min-height: 300px;
+ }
+
+ .content-container {
+  padding: 0 20px 20px 20px;
  }
 
  .form-container {
   width: 300px;
   margin: auto;
+ }
+
+ .panel {
+
  }

@@ -1,16 +1,23 @@
 class App.Views.Words extends App.View
   initialize: () ->
+    @score = 0
     @template = JST["templates/word"]
+    @loading = JST["templates/loading"]
+    @results = JST["templates/results"]
+    @navbar = JST["templates/navbar"]
     @newWord = ""
     @url = ""
     @newDefinitions = []
     @getWord()
-    @score = 0
+
 
   events:
     "submit form": "checkWord"
 
   getWord: ->
+    $("#navbar").html @navbar {score: @score}
+    $("#results").html @results {lastWord: @lastWord, lastDefinitions: @lastDefinitions, guessCorrect: @guessCorrect, guess: @guess}
+    @$el.html @loading
     $.post '/words', (data) =>
       @newWord = new App.Models.Word data["word"]
       @url = data["url"]
@@ -32,6 +39,10 @@ class App.Views.Words extends App.View
     @lastDefinitions = @newDefinitions
     @newWord.save().done =>
       @getWord()
+
+  renderLoading: ->
+    @$el.html @loading
+
 
 
 
