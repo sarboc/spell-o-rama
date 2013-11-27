@@ -18,15 +18,16 @@ class WordsController < ApplicationController
     # else
     #   word = Word.create
     # end
+
     word = Word.all.sample
     url = Wordnik.word.get_audio("#{word.word}")
 
-    while url.empty?
-      word.destroy
-      word = Word.create
-      sleep 0.5
-      url = Wordnik.word.get_audio("#{word.word}")
-    end
+    # while url.empty?
+    #   word.destroy
+    #   word = Word.create
+    #   sleep 0.5
+    #   url = Wordnik.word.get_audio("#{word.word}")
+    # end
 
     definitions = []
 
@@ -34,6 +35,7 @@ class WordsController < ApplicationController
       definitions << definition["text"]
     end
 
+    NewWord.perform_async
     render json: {word: word, url: url.last["fileUrl"], definitions: definitions}
   end
 
