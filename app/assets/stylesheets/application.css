@@ -14,14 +14,16 @@
  */
  body {
   background-color: #95a5a6;
+  background-image: url(../assets/connect.png);
  }
 
  .main-container {
   width: 600px;
   margin: 20px auto;
-  background-color: white;
-  border-radius: 5px;
+  background-color: #34495e;
+  border-radius: 6px;
   min-height: 300px;
+  /*border: 1px solid #101010;*/
  }
 
  .content-container {
@@ -35,4 +37,12 @@
 
  .navbar-brand {
   font-family: 'Chango', cursive;
+ }
+
+ .navbar {
+  border-radius: 5px 5px 0 0;
+ }
+
+ audio {
+  margin-bottom: 10px;
  }
