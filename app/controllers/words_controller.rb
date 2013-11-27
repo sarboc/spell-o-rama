@@ -2,7 +2,11 @@ class WordsController < ApplicationController
   respond_to :json # AJAX only
 
   def index
-    words = Word.where("percent > ?", 0.75).sample(10)
+    unless params[:percent]
+      params[:percent] = 0.75
+    end
+
+    words = Word.where("percent > ?", params[:percent]).sample(10)
     filtered_words = []
 
     words.each do |word|
