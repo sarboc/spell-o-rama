@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   respond_to :json # AJAX only
 
   def index
-    words = Word.where("percent > ?", 0.75)
+    words = Word.where("percent > ?", 0.75).sample(10)
     filtered_words = []
 
     words.each do |word|
@@ -13,8 +13,8 @@ class WordsController < ApplicationController
   end
 
   def show
-    word = Word.all.sample
-    respond_with word
+    word = Word.where("percent > ?", 0.75).sample
+    render json: { word: word.word, percent: word.percent }
   end
 
   def create
