@@ -14,10 +14,6 @@ class App.Views.Words extends App.View
     "submit form": "checkWord"
 
   getWord: ->
-    # @navbar
-    # @navbar.render()
-    # $("#navbar").html @navbar {score: @score}
-    # $("#results").html @results {lastWord: @lastWord, lastDefinitions: @lastDefinitions, guessCorrect: @guessCorrect, guess: @guess}
     @$el.html @loading
     $.post '/words', (data) =>
       @newWord = new App.Models.Word data["word"]
@@ -38,8 +34,6 @@ class App.Views.Words extends App.View
       @newWord.set "incorrect", 1 + @newWord.get "incorrect"
       @guessCorrect = false
     @app.trigger "changeResults", @newWord, @newDefinitions, @guess, @guessCorrect
-    @lastWord = @newWord
-    @lastDefinitions = @newDefinitions
     @newWord.save().done =>
       @getWord()
 
