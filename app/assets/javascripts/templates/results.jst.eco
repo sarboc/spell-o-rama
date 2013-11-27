@@ -7,11 +7,11 @@
       <h5>Your guess: <%= @guess %></h5>
       <h5>Actual spelling: <%= @lastWord.get "word" %></h5>
       <p>Definition(s):</p>
-      <ul>
+      <ol>
         <% for definition in @lastDefinitions: %>
           <li><%= definition %></li>
         <% end %>
-      </ul>
+      </ol>
     </div>
   </div>
 <% end %>

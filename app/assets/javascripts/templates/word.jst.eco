@@ -1,3 +1,7 @@
+<div class="alert alert-info">
+  <h4>Can you spell this word?</h4>
+  <p>Listen to the audio clip, and then guess how to spell the word. Click "check spelling" to see if you were correct!</p>
+</div>
 <div class="form-container">
   <audio controls name="media">
     <source src="<%= @url %>" type="audio/mpeg">

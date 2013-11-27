@@ -6,6 +6,9 @@ class Word < ActiveRecord::Base
 
   def add_word
     self.word = get_random_word.downcase
+    while Word.find_by_word(self.word)
+      self.word = get_random_word.downcase
+    end
   end
 
   def calculate_percentage

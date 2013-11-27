@@ -12,7 +12,12 @@ class WordsController < ApplicationController
   end
 
   def create
-    word = Word.create
+    num = rand(10)
+    if num % 3 == 0
+      word = Word.all.sample
+    else
+      word = Word.create
+    end
     url = Wordnik.word.get_audio("#{word.word}")
 
     while url.empty?
