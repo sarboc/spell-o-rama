@@ -3,6 +3,7 @@ window.App =
   Models: {}
   Views: {}
   start: ->
+    localStorage.score ?= 0
     console.log "App starting..."
     @wordView = new App.Views.Words
       app: @
@@ -13,6 +14,5 @@ window.App =
     @results = new App.Views.Results
       app: @
     .render()
-
 
 _.extend App, Backbone.Events

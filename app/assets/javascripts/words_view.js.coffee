@@ -3,7 +3,6 @@ class App.Views.Words extends App.View
   template: JST["templates/word"]
 
   initialize: ({@app}) ->
-    @score = 0
     @loading = JST["templates/loading"]
     # @results = JST["templates/results"]
     @newWord = ""
@@ -27,8 +26,9 @@ class App.Views.Words extends App.View
     @guess = $("#guess").val()
     if @guess == @newWord.get "word"
       @newWord.set "correct", 1 + @newWord.get "correct"
-      @score += 1
-      @app.trigger "changeScore", @score
+      # @score += 1
+      localStorage.score = +localStorage.score + 1
+      @app.trigger "changeScore"
       @guessCorrect = true
     else
       @newWord.set "incorrect", 1 + @newWord.get "incorrect"
