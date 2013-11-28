@@ -3,8 +3,7 @@
   <p>Listen to the audio clip, and then guess how to spell the word. Click "check spelling" to see if you're correct!</p>
 </div>
 <div class="form-container">
-  <audio controls name="media">
-    <source src="<%= @url %>" type="audio/mpeg">
+  <audio src="<%= @url %>" controls type="audio/mpeg">
   </audio>
   <form id="spelling" role="form">
     <div class="form-group">

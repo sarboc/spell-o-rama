@@ -8,7 +8,7 @@ class NewWord
     while url.empty?
       word.destroy
       word = Word.create
-      sleep 0.5
+      sleep 2
       url = Wordnik.word.get_audio("#{word.word}")
     end
 

@@ -19,7 +19,6 @@
         <h4 class="modal-title" id="myModalLabel">About Spell-O-Rama</h4>
       </div>
       <div class="modal-body">
-        Spell words. Help build and API. Be awesome.
         <h4>Spell words</h4>
           <p>Use Spell-O-Rama to help build your vocabulary while learning how to spell words.</p>
         <h4>Help build and API</h4>
